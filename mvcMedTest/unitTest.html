@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>Test Suite</title>
+<link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-2.14.1.css">
+
+<body>
+    <div id="qunit"></div>
+    <div id="qunit-fixture"></div>
+
+    <script src="controller.js"></script>
+    <script src="https://code.jquery.com/qunit/qunit-2.14.1.js"></script>
+
+    <script>
+        // model
+        let red;
+        let green;
+        let blue;
+
+        // view
+        function updateView() { }
+
+        QUnit.test('Øke rød med 50', function (assert) {
+            // arrange
+            red = 0;
+            green = 0;
+            blue = 0;
+
+            // act
+            changeColor('red', 50);
+
+            // assert
+            const actual = red;
+            const expected = 50;
+            assert.equal(actual, expected);
+        });
+
+        QUnit.test('Øke rød med 50 - fra 220', function (assert) {
+            // arrange
+            red = 220;
+            green = 0;
+            blue = 0;
+
+            // act
+            changeColor('red', 50);
+
+            // assert
+            const actual = red;
+            const expected = 255;
+            assert.equal(actual, expected);
+        });
+
+        QUnit.test('Minke rød med 50 - fra 20', function (assert) {
+            // arrange
+            red = 20;
+            green = 0;
+            blue = 0;
+
+            // act
+            changeColor('red', -50);
+
+            // assert
+            const actual = red;
+            const expected = 0;
+            assert.equal(actual, expected);
+        });
+
+    </script>
+</body>

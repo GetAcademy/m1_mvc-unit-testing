@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            height: 300px;
+            width: 300px;
+        }
+    </style>
+    <script src="controller.js"></script>
+</head>
+
+<body>
+    <div id="x"></div>
+    <div id="app"></div>
+
+    <script>
+        // model
+        let red = getRandomNumber(0, 255);
+        let green = getRandomNumber(0, 255);
+        let blue = getRandomNumber(0, 255);
+
+        // view
+        updateView();
+        function updateView() {
+            document.getElementById('app').innerHTML = `
+                <div 
+                    id="box"
+                    style="background-color: rgb(${red}, ${green}, ${blue})"
+                ></div>
+                <h3>Rødt</h3>
+                <button onclick="changeColor('red',10)">Mer rødt</button>                        
+                <button onclick="changeColor('red',-10)">Mindre rødt</button>    
+                Rødt = ${red}
+                <h3>Grønt</h3>
+                <button onclick="changeColor('green',10)">Mer grønt</button>                        
+                <button onclick="changeColor('green',-10)">Mindre grønt</button>                        
+                Grønt = ${green}                    
+                <h3>Blått</h3>
+                <button onclick="changeColor('blue',10)">Mer blått</button>                        
+                <button onclick="changeColor('blue',-10)">Mindre blått</button>                        
+                Blått = ${blue}
+            `;
+        }
+
+
+
+        // function moreGreen() {
+        //     green += 10;
+        //     updateView();
+        // }
+
+        // hjelpefunksjonen
+        function getRandomNumber(min, max) {
+            return Math.floor(Math.random() * (max - min) + min);
+        }
+    </script>
+</body>
+
+</html>
