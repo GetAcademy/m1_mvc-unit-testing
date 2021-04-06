@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>Test Suite</title>
+<link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-2.14.1.css">
+
+<body>
+    <div id="qunit"></div>
+    <div id="qunit-fixture"></div>
+
+    <script src="translate.js"></script>
+    <script src="https://code.jquery.com/qunit/qunit-2.14.1.js"></script>
+
+    <script>
+        QUnit.test('terje', function (assert) {
+            const actual = translateToThiefLanguage('terje');
+            const expected = 'toterorjoje';
+            assert.equal(actual, expected);
+        });
+
+        QUnit.test('null', function (assert) {
+            const actual = translateToThiefLanguage(null);
+            const expected = '';
+            assert.equal(actual, expected);
+        });
+
+        QUnit.test('terje!', function (assert) {
+            const actual = translateToThiefLanguage('terje!');
+            const expected = 'toterorjoje!';
+            assert.equal(actual, expected);
+        });
+
+        QUnit.test('terje!', function (assert) {
+            const actual = translateToThiefLanguage('Velkommen, Terje!');
+            const expected = 'Vovelolkokomommomenon, Toterorjoje!';
+            assert.equal(actual, expected);
+        });
+    </script>
+</body>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            height: 300px;
+            width: 300px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box"></div>
+    <button onclick="moreGreen()">Mer grønt</button>
+    <script>
+        const boxDiv = document.getElementById('box');
+
+        setColor(getRandomNumber(0, 255), getRandomNumber(0, 255), getRandomNumber(0, 255));
+
+        function moreGreen() {
+            const boxColor = boxDiv.style.backgroundColor;
+            // rgb(136, 157, 234);
+            const indexOfFirstComma = boxColor.indexOf(',');
+            const indexOfSecondComma = boxColor.indexOf(',', indexOfFirstComma + 1);
+            const greenStr = boxColor.substring(indexOfFirstComma + 1, indexOfSecondComma);
+            let green = parseInt(greenStr);
+            green += 10;
+            const newBoxColor = boxColor.substring(0, indexOfFirstComma + 1)
+                + green
+                + boxColor.substring(indexOfSecondComma);
+            boxDiv.style.backgroundColor = newBoxColor;
+        }
+
+        function setColor(red, green, blue) {
+            box.style.backgroundColor = `rgb(${red},${green},${blue})`;
+        }
+
+        function getRandomNumber(min, max) {
+            return Math.floor(Math.random() * (max - min) + min);
+        }
+    </script>
+</body>
+
+</html>
